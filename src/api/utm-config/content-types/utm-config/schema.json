@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "utm_configs",
+  "info": {
+    "singularName": "utm-config",
+    "pluralName": "utm-configs",
+    "displayName": "UtmConfig",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "utmCode": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "themeConfig": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme-config.theme-config"
+    }
+  }
+}

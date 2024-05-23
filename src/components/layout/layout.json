@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_layout_layouts",
+  "info": {
+    "displayName": "layout",
+    "icon": "layout",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "margin": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "style": {
+      "type": "json"
+    },
+    "layoutOrder": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.layout-order"
+    },
+    "layoutType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-field-name.form-field-name"
+    }
+  }
+}

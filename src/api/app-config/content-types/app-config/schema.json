@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "app_configs",
+  "info": {
+    "singularName": "app-config",
+    "pluralName": "app-configs",
+    "displayName": "appConfig"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "themeConfig": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme-config.theme-config"
+    }
+  }
+}

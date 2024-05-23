@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "form_field_names",
+  "info": {
+    "singularName": "form-field-name",
+    "pluralName": "form-field-names",
+    "displayName": "FormFieldName",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

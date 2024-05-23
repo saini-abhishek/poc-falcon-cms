@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "theme_configs",
+  "info": {
+    "singularName": "theme-config",
+    "pluralName": "theme-configs",
+    "displayName": "ThemeConfig",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "style": {
+      "type": "json"
+    },
+    "favicon": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "ui.logo"
+      ]
+    },
+    "layout": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.layout"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_container_form_containers",
+  "info": {
+    "displayName": "formContainer",
+    "icon": "information"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    }
+  }
+}

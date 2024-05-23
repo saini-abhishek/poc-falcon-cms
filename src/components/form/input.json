@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_form_inputs",
+  "info": {
+    "displayName": "input",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "fieldName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-field-name.form-field-name"
+    },
+    "type": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "suggestion": {
+      "type": "string"
+    },
+    "style": {
+      "type": "json"
+    },
+    "visibility": {
+      "type": "boolean"
+    }
+  }
+}
