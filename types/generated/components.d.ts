@@ -21,6 +21,7 @@ export interface FormInput extends Schema.Component {
   info: {
     displayName: 'input';
     icon: 'chartBubble';
+    description: '';
   };
   attributes: {
     fieldName: Attribute.Relation<
@@ -33,7 +34,7 @@ export interface FormInput extends Schema.Component {
     placeholder: Attribute.String;
     suggestion: Attribute.String;
     style: Attribute.JSON;
-    visibility: Attribute.Boolean;
+    visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
   };
 }
 
