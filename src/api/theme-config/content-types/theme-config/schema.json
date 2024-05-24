@@ -29,7 +29,7 @@
     },
     "layout": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "layout.layout"
     }
   }

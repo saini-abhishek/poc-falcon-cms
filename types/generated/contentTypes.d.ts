@@ -926,7 +926,7 @@ export interface ApiThemeConfigThemeConfig extends Schema.CollectionType {
     style: Attribute.JSON;
     favicon: Attribute.String;
     sections: Attribute.DynamicZone<['ui.logo']>;
-    layout: Attribute.Component<'layout.layout', true>;
+    layout: Attribute.Component<'layout.layout'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
