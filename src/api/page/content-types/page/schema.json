@@ -34,6 +34,16 @@
       "components": [
         "container.form-container"
       ]
+    },
+    "previous": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.form-navigation"
+    },
+    "next": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.form-navigation"
     }
   }
 }

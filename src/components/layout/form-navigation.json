@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_form_navigations",
+  "info": {
+    "displayName": "formNavigation",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    }
+  }
+}

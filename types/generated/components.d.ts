@@ -38,6 +38,22 @@ export interface FormInput extends Schema.Component {
   };
 }
 
+export interface LayoutFormNavigation extends Schema.Component {
+  collectionName: 'components_layout_form_navigations';
+  info: {
+    displayName: 'formNavigation';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    url: Attribute.String;
+    page: Attribute.Relation<
+      'layout.form-navigation',
+      'oneToOne',
+      'api::page.page'
+    >;
+  };
+}
+
 export interface LayoutLayoutOrder extends Schema.Component {
   collectionName: 'components_layout_layout_orders';
   info: {
@@ -104,6 +120,7 @@ declare module '@strapi/types' {
     export interface Components {
       'container.form-container': ContainerFormContainer;
       'form.input': FormInput;
+      'layout.form-navigation': LayoutFormNavigation;
       'layout.layout-order': LayoutLayoutOrder;
       'layout.layout': LayoutLayout;
       'ui.logo': UiLogo;

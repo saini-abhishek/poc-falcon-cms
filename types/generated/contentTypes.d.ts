@@ -932,6 +932,8 @@ export interface ApiPagePage extends Schema.CollectionType {
     >;
     layout: Attribute.Component<'layout.layout'>;
     sections: Attribute.DynamicZone<['container.form-container']>;
+    previous: Attribute.Component<'layout.form-navigation'>;
+    next: Attribute.Component<'layout.form-navigation'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
