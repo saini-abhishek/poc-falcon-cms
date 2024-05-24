@@ -895,6 +895,11 @@ export interface ApiPagePage extends Schema.CollectionType {
     name: Attribute.String;
     slug: Attribute.String;
     formContainer: Attribute.Component<'container.form-container'>;
+    utmConfig: Attribute.Relation<
+      'api::page.page',
+      'manyToOne',
+      'api::utm-config.utm-config'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -958,6 +963,11 @@ export interface ApiUtmConfigUtmConfig extends Schema.CollectionType {
       'api::utm-config.utm-config',
       'oneToOne',
       'api::theme-config.theme-config'
+    >;
+    pages: Attribute.Relation<
+      'api::utm-config.utm-config',
+      'oneToMany',
+      'api::page.page'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
