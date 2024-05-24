@@ -79,10 +79,10 @@ export interface LayoutLayout extends Schema.Component {
     padding: Attribute.String;
     style: Attribute.JSON;
     layoutOrder: Attribute.Component<'layout.layout-order', true>;
-    layoutType: Attribute.Relation<
+    layout: Attribute.Relation<
       'layout.layout',
       'oneToOne',
-      'api::form-field-name.form-field-name'
+      'api::layout.layout'
     >;
   };
 }

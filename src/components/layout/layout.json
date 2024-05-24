@@ -21,10 +21,10 @@
       "repeatable": true,
       "component": "layout.layout-order"
     },
-    "layoutType": {
+    "layout": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::form-field-name.form-field-name"
+      "target": "api::layout.layout"
     }
   }
 }

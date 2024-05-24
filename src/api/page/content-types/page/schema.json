@@ -18,16 +18,22 @@
     "slug": {
       "type": "string"
     },
-    "formContainer": {
-      "type": "component",
-      "repeatable": false,
-      "component": "container.form-container"
-    },
     "utmConfig": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::utm-config.utm-config",
       "inversedBy": "pages"
+    },
+    "layout": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.layout"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "container.form-container"
+      ]
     }
   }
 }

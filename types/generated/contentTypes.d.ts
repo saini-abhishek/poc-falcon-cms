@@ -880,6 +880,37 @@ export interface ApiFormFieldNameFormFieldName extends Schema.CollectionType {
   };
 }
 
+export interface ApiLayoutLayout extends Schema.CollectionType {
+  collectionName: 'layouts';
+  info: {
+    singularName: 'layout';
+    pluralName: 'layouts';
+    displayName: 'layout';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    type: Attribute.Enumeration<['page', 'form', 'app']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::layout.layout',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::layout.layout',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Schema.CollectionType {
   collectionName: 'pages';
   info: {
@@ -894,12 +925,13 @@ export interface ApiPagePage extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     slug: Attribute.String;
-    formContainer: Attribute.Component<'container.form-container'>;
     utmConfig: Attribute.Relation<
       'api::page.page',
       'manyToOne',
       'api::utm-config.utm-config'
     >;
+    layout: Attribute.Component<'layout.layout'>;
+    sections: Attribute.DynamicZone<['container.form-container']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1008,6 +1040,7 @@ declare module '@strapi/types' {
       'api::app-config.app-config': ApiAppConfigAppConfig;
       'api::form.form': ApiFormForm;
       'api::form-field-name.form-field-name': ApiFormFieldNameFormFieldName;
+      'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;
       'api::theme-config.theme-config': ApiThemeConfigThemeConfig;
       'api::utm-config.utm-config': ApiUtmConfigUtmConfig;
