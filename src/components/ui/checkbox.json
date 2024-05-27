@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_ui_checkboxes",
+  "info": {
+    "displayName": "Checkbox",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

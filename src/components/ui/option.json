@@ -1,0 +1,59 @@
+{
+  "collectionName": "components_ui_options",
+  "info": {
+    "displayName": "Option",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "dataSourceName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::data-source-name.data-source-name"
+    },
+    "componentType": {
+      "type": "enumeration",
+      "enum": [
+        "CheckBox"
+      ]
+    },
+    "style": {
+      "type": "json"
+    },
+    "visibility": {
+      "type": "boolean",
+      "default": true
+    },
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "fieldName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-field-name.form-field-name"
+    },
+    "name": {
+      "type": "string"
+    },
+    "popUp": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pop-up.pop-up"
+    },
+    "dataFilter": {
+      "type": "component",
+      "repeatable": true,
+      "component": "logical.data-filter"
+    }
+  }
+}

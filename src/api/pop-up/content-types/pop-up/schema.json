@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pop_ups",
+  "info": {
+    "singularName": "pop-up",
+    "pluralName": "pop-ups",
+    "displayName": "PopUp"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "closeIcon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "layout": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.layout"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "form.input"
+      ]
+    },
+    "defaultOpen": {
+      "type": "boolean"
+    }
+  }
+}

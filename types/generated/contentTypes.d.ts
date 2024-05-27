@@ -823,6 +823,68 @@ export interface ApiAppConfigAppConfig extends Schema.SingleType {
   };
 }
 
+export interface ApiCountryCountry extends Schema.CollectionType {
+  collectionName: 'countries';
+  info: {
+    singularName: 'country';
+    pluralName: 'countries';
+    displayName: 'Country';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    shortName: Attribute.String;
+    code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::country.country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::country.country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataSourceNameDataSourceName extends Schema.CollectionType {
+  collectionName: 'data_source_names';
+  info: {
+    singularName: 'data-source-name';
+    pluralName: 'data-source-names';
+    displayName: 'DataSourceName';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-source-name.data-source-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-source-name.data-source-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFormForm extends Schema.CollectionType {
   collectionName: 'forms';
   info: {
@@ -836,7 +898,16 @@ export interface ApiFormForm extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    components: Attribute.DynamicZone<['form.input']>;
+    components: Attribute.DynamicZone<
+      [
+        'form.input',
+        'ui.option',
+        'form.phone-number',
+        'ui.button',
+        'ui.checkbox',
+        'ui.toggle-switch'
+      ]
+    >;
     title: Attribute.String;
     subTitle: Attribute.String;
     createdAt: Attribute.DateTime;
@@ -939,6 +1010,42 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiPopUpPopUp extends Schema.CollectionType {
+  collectionName: 'pop_ups';
+  info: {
+    singularName: 'pop-up';
+    pluralName: 'pop-ups';
+    displayName: 'PopUp';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    title: Attribute.String;
+    subTitle: Attribute.String;
+    closeIcon: Attribute.Media;
+    layout: Attribute.Component<'layout.layout'>;
+    sections: Attribute.DynamicZone<['form.input']>;
+    defaultOpen: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pop-up.pop-up',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pop-up.pop-up',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiThemeConfigThemeConfig extends Schema.CollectionType {
   collectionName: 'theme_configs';
   info: {
@@ -1035,10 +1142,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::app-config.app-config': ApiAppConfigAppConfig;
+      'api::country.country': ApiCountryCountry;
+      'api::data-source-name.data-source-name': ApiDataSourceNameDataSourceName;
       'api::form.form': ApiFormForm;
       'api::form-field-name.form-field-name': ApiFormFieldNameFormFieldName;
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;
+      'api::pop-up.pop-up': ApiPopUpPopUp;
       'api::theme-config.theme-config': ApiThemeConfigThemeConfig;
       'api::utm-config.utm-config': ApiUtmConfigUtmConfig;
     }

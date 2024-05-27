@@ -18,7 +18,12 @@
     "components": {
       "type": "dynamiczone",
       "components": [
-        "form.input"
+        "form.input",
+        "ui.option",
+        "form.phone-number",
+        "ui.button",
+        "ui.checkbox",
+        "ui.toggle-switch"
       ]
     },
     "title": {

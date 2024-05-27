@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_logical_data_filters",
+  "info": {
+    "displayName": "DataFilter",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "enumeration",
+      "enum": [
+        "name",
+        "title",
+        "value"
+      ]
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

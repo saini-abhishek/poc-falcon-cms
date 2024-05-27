@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_form_phone_numbers",
+  "info": {
+    "displayName": "PhoneNumber",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "fieldName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-field-name.form-field-name"
+    },
+    "visibility": {
+      "type": "boolean",
+      "default": true
+    },
+    "dataSourceName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::data-source-name.data-source-name"
+    },
+    "dataFilter": {
+      "type": "component",
+      "repeatable": true,
+      "component": "logical.data-filter"
+    },
+    "popUp": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pop-up.pop-up"
+    }
+  }
+}
