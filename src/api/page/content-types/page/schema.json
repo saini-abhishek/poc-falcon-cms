@@ -18,12 +18,6 @@
     "slug": {
       "type": "string"
     },
-    "utmConfig": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::utm-config.utm-config",
-      "inversedBy": "pages"
-    },
     "layout": {
       "type": "component",
       "repeatable": false,
