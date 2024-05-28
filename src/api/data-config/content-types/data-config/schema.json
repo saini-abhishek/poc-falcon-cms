@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "data_configs",
+  "info": {
+    "singularName": "data-config",
+    "pluralName": "data-configs",
+    "displayName": "DataConfig",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "dataNationalities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::data-nationality.data-nationality",
+      "inversedBy": "dataConfigs"
+    },
+    "dataCountries": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::country.country",
+      "inversedBy": "dataConfigs"
+    },
+    "dataGenders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::data-gender.data-gender"
+    }
+  }
+}

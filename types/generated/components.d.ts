@@ -16,6 +16,25 @@ export interface ContainerFormContainer extends Schema.Component {
   };
 }
 
+export interface FormDobSingleInput extends Schema.Component {
+  collectionName: 'components_form_dob_single_inputs';
+  info: {
+    displayName: 'dobSingleInput';
+    icon: 'user';
+  };
+  attributes: {
+    name: Attribute.String;
+    label: Attribute.String;
+    placeholder: Attribute.String;
+    fieldName: Attribute.Relation<
+      'form.dob-single-input',
+      'oneToOne',
+      'api::form-field-name.form-field-name'
+    >;
+    visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
 export interface FormInput extends Schema.Component {
   collectionName: 'components_form_inputs';
   info: {
@@ -198,7 +217,7 @@ export interface UiOption extends Schema.Component {
       'oneToOne',
       'api::data-source-name.data-source-name'
     >;
-    componentType: Attribute.Enumeration<['CheckBox']>;
+    componentType: Attribute.Enumeration<['CheckBox', 'ButtonGroup']>;
     style: Attribute.JSON;
     visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
     label: Attribute.String;
@@ -230,6 +249,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'container.form-container': ContainerFormContainer;
+      'form.dob-single-input': FormDobSingleInput;
       'form.input': FormInput;
       'form.phone-number': FormPhoneNumber;
       'layout.form-navigation': LayoutFormNavigation;

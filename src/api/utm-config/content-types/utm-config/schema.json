@@ -27,6 +27,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::page.page"
+    },
+    "dataConfig": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::data-config.data-config"
     }
   }
 }

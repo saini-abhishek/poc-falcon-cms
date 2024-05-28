@@ -21,7 +21,8 @@
     "componentType": {
       "type": "enumeration",
       "enum": [
-        "CheckBox"
+        "CheckBox",
+        "ButtonGroup"
       ]
     },
     "style": {

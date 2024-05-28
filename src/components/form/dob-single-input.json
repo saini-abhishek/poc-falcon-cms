@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_form_dob_single_inputs",
+  "info": {
+    "displayName": "dobSingleInput",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "fieldName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-field-name.form-field-name"
+    },
+    "visibility": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

@@ -828,7 +828,8 @@ export interface ApiCountryCountry extends Schema.CollectionType {
   info: {
     singularName: 'country';
     pluralName: 'countries';
-    displayName: 'Country';
+    displayName: 'DataCountry';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -837,6 +838,11 @@ export interface ApiCountryCountry extends Schema.CollectionType {
     name: Attribute.String;
     shortName: Attribute.String;
     code: Attribute.String;
+    dataConfigs: Attribute.Relation<
+      'api::country.country',
+      'manyToMany',
+      'api::data-config.data-config'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -848,6 +854,123 @@ export interface ApiCountryCountry extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::country.country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataConfigDataConfig extends Schema.CollectionType {
+  collectionName: 'data_configs';
+  info: {
+    singularName: 'data-config';
+    pluralName: 'data-configs';
+    displayName: 'DataConfig';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    dataNationalities: Attribute.Relation<
+      'api::data-config.data-config',
+      'manyToMany',
+      'api::data-nationality.data-nationality'
+    >;
+    dataCountries: Attribute.Relation<
+      'api::data-config.data-config',
+      'manyToMany',
+      'api::country.country'
+    >;
+    dataGenders: Attribute.Relation<
+      'api::data-config.data-config',
+      'oneToMany',
+      'api::data-gender.data-gender'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-config.data-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-config.data-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataGenderDataGender extends Schema.CollectionType {
+  collectionName: 'data_genders';
+  info: {
+    singularName: 'data-gender';
+    pluralName: 'data-genders';
+    displayName: 'DataGender';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    label: Attribute.String;
+    value: Attribute.String;
+    icon: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-gender.data-gender',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-gender.data-gender',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataNationalityDataNationality
+  extends Schema.CollectionType {
+  collectionName: 'data_nationalities';
+  info: {
+    singularName: 'data-nationality';
+    pluralName: 'data-nationalities';
+    displayName: 'DataNationality';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    term: Attribute.String;
+    value: Attribute.String;
+    dataConfigs: Attribute.Relation<
+      'api::data-nationality.data-nationality',
+      'manyToMany',
+      'api::data-config.data-config'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-nationality.data-nationality',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-nationality.data-nationality',
       'oneToOne',
       'admin::user'
     > &
@@ -905,7 +1028,8 @@ export interface ApiFormForm extends Schema.CollectionType {
         'form.phone-number',
         'ui.button',
         'ui.checkbox',
-        'ui.toggle-switch'
+        'ui.toggle-switch',
+        'form.dob-single-input'
       ]
     >;
     title: Attribute.String;
@@ -1105,6 +1229,11 @@ export interface ApiUtmConfigUtmConfig extends Schema.CollectionType {
       'oneToMany',
       'api::page.page'
     >;
+    dataConfig: Attribute.Relation<
+      'api::utm-config.utm-config',
+      'oneToOne',
+      'api::data-config.data-config'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1143,6 +1272,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::app-config.app-config': ApiAppConfigAppConfig;
       'api::country.country': ApiCountryCountry;
+      'api::data-config.data-config': ApiDataConfigDataConfig;
+      'api::data-gender.data-gender': ApiDataGenderDataGender;
+      'api::data-nationality.data-nationality': ApiDataNationalityDataNationality;
       'api::data-source-name.data-source-name': ApiDataSourceNameDataSourceName;
       'api::form.form': ApiFormForm;
       'api::form-field-name.form-field-name': ApiFormFieldNameFormFieldName;

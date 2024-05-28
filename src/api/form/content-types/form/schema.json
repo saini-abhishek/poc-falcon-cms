@@ -23,7 +23,8 @@
         "form.phone-number",
         "ui.button",
         "ui.checkbox",
-        "ui.toggle-switch"
+        "ui.toggle-switch",
+        "form.dob-single-input"
       ]
     },
     "title": {

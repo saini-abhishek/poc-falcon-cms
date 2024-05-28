@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "countries",
+  "collectionName": "data_nationalities",
   "info": {
-    "singularName": "country",
-    "pluralName": "countries",
-    "displayName": "DataCountry",
-    "description": ""
+    "singularName": "data-nationality",
+    "pluralName": "data-nationalities",
+    "displayName": "DataNationality"
   },
   "options": {
     "draftAndPublish": true
@@ -15,17 +14,17 @@
     "name": {
       "type": "string"
     },
-    "shortName": {
+    "term": {
       "type": "string"
     },
-    "code": {
+    "value": {
       "type": "string"
     },
     "dataConfigs": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::data-config.data-config",
-      "mappedBy": "dataCountries"
+      "mappedBy": "dataNationalities"
     }
   }
 }
