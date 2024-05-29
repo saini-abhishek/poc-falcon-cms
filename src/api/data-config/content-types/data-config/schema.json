@@ -31,6 +31,16 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::data-gender.data-gender"
+    },
+    "dataProductName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::data-product-name.data-product-name"
+    },
+    "dataPremiumType": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::data-premium-type.data-premium-type"
     }
   }
 }

@@ -889,6 +889,16 @@ export interface ApiDataConfigDataConfig extends Schema.CollectionType {
       'oneToMany',
       'api::data-gender.data-gender'
     >;
+    dataProductName: Attribute.Relation<
+      'api::data-config.data-config',
+      'oneToOne',
+      'api::data-product-name.data-product-name'
+    >;
+    dataPremiumType: Attribute.Relation<
+      'api::data-config.data-config',
+      'oneToMany',
+      'api::data-premium-type.data-premium-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -971,6 +981,72 @@ export interface ApiDataNationalityDataNationality
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::data-nationality.data-nationality',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataPremiumTypeDataPremiumType
+  extends Schema.CollectionType {
+  collectionName: 'data_premium_types';
+  info: {
+    singularName: 'data-premium-type';
+    pluralName: 'data-premium-types';
+    displayName: 'DataPremiumType';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    label: Attribute.String;
+    value: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-premium-type.data-premium-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-premium-type.data-premium-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataProductNameDataProductName
+  extends Schema.CollectionType {
+  collectionName: 'data_product_names';
+  info: {
+    singularName: 'data-product-name';
+    pluralName: 'data-product-names';
+    displayName: 'DataProductName';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    label: Attribute.String;
+    value: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-product-name.data-product-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-product-name.data-product-name',
       'oneToOne',
       'admin::user'
     > &
@@ -1275,6 +1351,8 @@ declare module '@strapi/types' {
       'api::data-config.data-config': ApiDataConfigDataConfig;
       'api::data-gender.data-gender': ApiDataGenderDataGender;
       'api::data-nationality.data-nationality': ApiDataNationalityDataNationality;
+      'api::data-premium-type.data-premium-type': ApiDataPremiumTypeDataPremiumType;
+      'api::data-product-name.data-product-name': ApiDataProductNameDataProductName;
       'api::data-source-name.data-source-name': ApiDataSourceNameDataSourceName;
       'api::form.form': ApiFormForm;
       'api::form-field-name.form-field-name': ApiFormFieldNameFormFieldName;

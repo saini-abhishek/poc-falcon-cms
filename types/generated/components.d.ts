@@ -217,7 +217,9 @@ export interface UiOption extends Schema.Component {
       'oneToOne',
       'api::data-source-name.data-source-name'
     >;
-    componentType: Attribute.Enumeration<['CheckBox', 'ButtonGroup']>;
+    componentType: Attribute.Enumeration<
+      ['CheckBox', 'ButtonGroup', 'Dropdown']
+    >;
     style: Attribute.JSON;
     visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
     label: Attribute.String;

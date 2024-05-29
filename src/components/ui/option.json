@@ -22,7 +22,8 @@
       "type": "enumeration",
       "enum": [
         "CheckBox",
-        "ButtonGroup"
+        "ButtonGroup",
+        "Dropdown"
       ]
     },
     "style": {
