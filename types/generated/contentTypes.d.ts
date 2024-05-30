@@ -1246,6 +1246,38 @@ export interface ApiPopUpPopUp extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'Product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    productId: Attribute.String;
+    code: Attribute.String;
+    marketingName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiThemeConfigThemeConfig extends Schema.CollectionType {
   collectionName: 'theme_configs';
   info: {
@@ -1359,6 +1391,7 @@ declare module '@strapi/types' {
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;
       'api::pop-up.pop-up': ApiPopUpPopUp;
+      'api::product.product': ApiProductProduct;
       'api::theme-config.theme-config': ApiThemeConfigThemeConfig;
       'api::utm-config.utm-config': ApiUtmConfigUtmConfig;
     }
