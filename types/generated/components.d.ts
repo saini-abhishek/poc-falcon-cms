@@ -236,7 +236,7 @@ export interface UiOption extends Schema.Component {
       'api::data-source-name.data-source-name'
     >;
     componentType: Attribute.Enumeration<
-      ['CheckBox', 'ButtonGroup', 'Dropdown']
+      ['RadioGroup', 'ButtonGroup', 'Dropdown']
     >;
     style: Attribute.JSON;
     visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
@@ -250,6 +250,7 @@ export interface UiOption extends Schema.Component {
     name: Attribute.String;
     popUp: Attribute.Relation<'ui.option', 'oneToOne', 'api::pop-up.pop-up'>;
     dataFilter: Attribute.Component<'logical.data-filter', true>;
+    variant: Attribute.Enumeration<['checkbox']>;
   };
 }
 
