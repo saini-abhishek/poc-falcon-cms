@@ -32,15 +32,20 @@
       "relation": "oneToMany",
       "target": "api::data-gender.data-gender"
     },
-    "dataProductName": {
+    "dataProductNames": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::data-product-name.data-product-name"
     },
     "dataPremiumType": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::data-premium-type.data-premium-type"
+    },
+    "dataPremiumPaymentTerms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::data-premium-payment-term.data-premium-payment-term"
     }
   }
 }

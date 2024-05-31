@@ -889,15 +889,20 @@ export interface ApiDataConfigDataConfig extends Schema.CollectionType {
       'oneToMany',
       'api::data-gender.data-gender'
     >;
-    dataProductName: Attribute.Relation<
+    dataProductNames: Attribute.Relation<
       'api::data-config.data-config',
-      'oneToOne',
+      'oneToMany',
       'api::data-product-name.data-product-name'
     >;
     dataPremiumType: Attribute.Relation<
       'api::data-config.data-config',
       'oneToMany',
       'api::data-premium-type.data-premium-type'
+    >;
+    dataPremiumPaymentTerms: Attribute.Relation<
+      'api::data-config.data-config',
+      'oneToMany',
+      'api::data-premium-payment-term.data-premium-payment-term'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -988,6 +993,39 @@ export interface ApiDataNationalityDataNationality
   };
 }
 
+export interface ApiDataPremiumPaymentTermDataPremiumPaymentTerm
+  extends Schema.CollectionType {
+  collectionName: 'data_premium_payment_terms';
+  info: {
+    singularName: 'data-premium-payment-term';
+    pluralName: 'data-premium-payment-terms';
+    displayName: 'DataPremiumPaymentTerm';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    label: Attribute.String;
+    value: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-premium-payment-term.data-premium-payment-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-premium-payment-term.data-premium-payment-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDataPremiumTypeDataPremiumType
   extends Schema.CollectionType {
   collectionName: 'data_premium_types';
@@ -1028,14 +1066,16 @@ export interface ApiDataProductNameDataProductName
     singularName: 'data-product-name';
     pluralName: 'data-product-names';
     displayName: 'DataProductName';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
-    label: Attribute.String;
-    value: Attribute.String;
+    marketingName: Attribute.String;
+    code: Attribute.String;
+    productId: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1383,6 +1423,7 @@ declare module '@strapi/types' {
       'api::data-config.data-config': ApiDataConfigDataConfig;
       'api::data-gender.data-gender': ApiDataGenderDataGender;
       'api::data-nationality.data-nationality': ApiDataNationalityDataNationality;
+      'api::data-premium-payment-term.data-premium-payment-term': ApiDataPremiumPaymentTermDataPremiumPaymentTerm;
       'api::data-premium-type.data-premium-type': ApiDataPremiumTypeDataPremiumType;
       'api::data-product-name.data-product-name': ApiDataProductNameDataProductName;
       'api::data-source-name.data-source-name': ApiDataSourceNameDataSourceName;
