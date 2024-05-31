@@ -32,6 +32,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::data-config.data-config"
+    },
+    "formFieldConfig": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-field-config.form-field-config"
     }
   }
 }

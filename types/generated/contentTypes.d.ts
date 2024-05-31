@@ -1160,6 +1160,39 @@ export interface ApiFormForm extends Schema.CollectionType {
   };
 }
 
+export interface ApiFormFieldConfigFormFieldConfig
+  extends Schema.CollectionType {
+  collectionName: 'form_field_configs';
+  info: {
+    singularName: 'form-field-config';
+    pluralName: 'form-field-configs';
+    displayName: 'FormFieldConfig';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    fieldConfig: Attribute.Component<'form.field-config', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::form-field-config.form-field-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::form-field-config.form-field-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFormFieldNameFormFieldName extends Schema.CollectionType {
   collectionName: 'form_field_names';
   info: {
@@ -1382,6 +1415,11 @@ export interface ApiUtmConfigUtmConfig extends Schema.CollectionType {
       'oneToOne',
       'api::data-config.data-config'
     >;
+    formFieldConfig: Attribute.Relation<
+      'api::utm-config.utm-config',
+      'oneToOne',
+      'api::form-field-config.form-field-config'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1428,6 +1466,7 @@ declare module '@strapi/types' {
       'api::data-product-name.data-product-name': ApiDataProductNameDataProductName;
       'api::data-source-name.data-source-name': ApiDataSourceNameDataSourceName;
       'api::form.form': ApiFormForm;
+      'api::form-field-config.form-field-config': ApiFormFieldConfigFormFieldConfig;
       'api::form-field-name.form-field-name': ApiFormFieldNameFormFieldName;
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;

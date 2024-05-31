@@ -35,6 +35,24 @@ export interface FormDobSingleInput extends Schema.Component {
   };
 }
 
+export interface FormFieldConfig extends Schema.Component {
+  collectionName: 'components_form_field_configs';
+  info: {
+    displayName: 'fieldConfig';
+  };
+  attributes: {
+    visibility: Attribute.Boolean;
+    defaultValue: Attribute.String;
+    fieldName: Attribute.Relation<
+      'form.field-config',
+      'oneToOne',
+      'api::form-field-name.form-field-name'
+    >;
+    label: Attribute.String;
+    placeholder: Attribute.String;
+  };
+}
+
 export interface FormInput extends Schema.Component {
   collectionName: 'components_form_inputs';
   info: {
@@ -252,6 +270,7 @@ declare module '@strapi/types' {
     export interface Components {
       'container.form-container': ContainerFormContainer;
       'form.dob-single-input': FormDobSingleInput;
+      'form.field-config': FormFieldConfig;
       'form.input': FormInput;
       'form.phone-number': FormPhoneNumber;
       'layout.form-navigation': LayoutFormNavigation;

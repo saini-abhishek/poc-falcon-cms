@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_form_field_configs",
+  "info": {
+    "displayName": "fieldConfig"
+  },
+  "options": {},
+  "attributes": {
+    "visibility": {
+      "type": "boolean"
+    },
+    "defaultValue": {
+      "type": "string"
+    },
+    "fieldName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-field-name.form-field-name"
+    },
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    }
+  }
+}
