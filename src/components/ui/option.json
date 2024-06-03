@@ -62,6 +62,9 @@
       "enum": [
         "checkbox"
       ]
+    },
+    "defaultValue": {
+      "type": "string"
     }
   }
 }

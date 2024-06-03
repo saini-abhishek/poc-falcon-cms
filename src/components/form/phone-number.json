@@ -2,7 +2,8 @@
   "collectionName": "components_form_phone_numbers",
   "info": {
     "displayName": "PhoneNumber",
-    "icon": "phone"
+    "icon": "phone",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -38,6 +39,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::pop-up.pop-up"
+    },
+    "defaultValue": {
+      "type": "string"
     }
   }
 }

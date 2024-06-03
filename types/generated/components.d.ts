@@ -21,6 +21,7 @@ export interface FormDobSingleInput extends Schema.Component {
   info: {
     displayName: 'dobSingleInput';
     icon: 'user';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
@@ -32,6 +33,7 @@ export interface FormDobSingleInput extends Schema.Component {
       'api::form-field-name.form-field-name'
     >;
     visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
+    defaultValue: Attribute.String;
   };
 }
 
@@ -72,6 +74,7 @@ export interface FormInput extends Schema.Component {
     suggestion: Attribute.String;
     style: Attribute.JSON;
     visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
+    defaultValue: Attribute.String;
   };
 }
 
@@ -80,6 +83,7 @@ export interface FormPhoneNumber extends Schema.Component {
   info: {
     displayName: 'PhoneNumber';
     icon: 'phone';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
@@ -102,6 +106,7 @@ export interface FormPhoneNumber extends Schema.Component {
       'oneToOne',
       'api::pop-up.pop-up'
     >;
+    defaultValue: Attribute.String;
   };
 }
 
@@ -201,10 +206,12 @@ export interface UiCheckbox extends Schema.Component {
   info: {
     displayName: 'Checkbox';
     icon: 'check';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
     label: Attribute.String;
+    defaultValue: Attribute.String;
   };
 }
 
@@ -251,6 +258,7 @@ export interface UiOption extends Schema.Component {
     popUp: Attribute.Relation<'ui.option', 'oneToOne', 'api::pop-up.pop-up'>;
     dataFilter: Attribute.Component<'logical.data-filter', true>;
     variant: Attribute.Enumeration<['checkbox']>;
+    defaultValue: Attribute.String;
   };
 }
 
@@ -259,10 +267,12 @@ export interface UiToggleSwitch extends Schema.Component {
   info: {
     displayName: 'ToggleSwitch';
     icon: 'server';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
     label: Attribute.String;
+    defaultValue: Attribute.String;
   };
 }
 

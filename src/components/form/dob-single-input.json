@@ -2,7 +2,8 @@
   "collectionName": "components_form_dob_single_inputs",
   "info": {
     "displayName": "dobSingleInput",
-    "icon": "user"
+    "icon": "user",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -23,6 +24,9 @@
     "visibility": {
       "type": "boolean",
       "default": true
+    },
+    "defaultValue": {
+      "type": "string"
     }
   }
 }

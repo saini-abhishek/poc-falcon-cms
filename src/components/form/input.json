@@ -30,6 +30,9 @@
     "visibility": {
       "type": "boolean",
       "default": true
+    },
+    "defaultValue": {
+      "type": "string"
     }
   }
 }
