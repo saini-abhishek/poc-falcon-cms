@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "data_policy_terms",
+  "info": {
+    "singularName": "data-policy-term",
+    "pluralName": "data-policy-terms",
+    "displayName": "DataPolicyTerm"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

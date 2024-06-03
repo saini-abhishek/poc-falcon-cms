@@ -987,6 +987,71 @@ export interface ApiDataNationalityDataNationality
   };
 }
 
+export interface ApiDataPaymentModeDataPaymentMode
+  extends Schema.CollectionType {
+  collectionName: 'data_payment_modes';
+  info: {
+    singularName: 'data-payment-mode';
+    pluralName: 'data-payment-modes';
+    displayName: 'DataPaymentMode';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    label: Attribute.String;
+    code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-payment-mode.data-payment-mode',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-payment-mode.data-payment-mode',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataPolicyTermDataPolicyTerm extends Schema.CollectionType {
+  collectionName: 'data_policy_terms';
+  info: {
+    singularName: 'data-policy-term';
+    pluralName: 'data-policy-terms';
+    displayName: 'DataPolicyTerm';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    label: Attribute.String;
+    value: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-policy-term.data-policy-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-policy-term.data-policy-term',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDataPremiumPaymentTermDataPremiumPaymentTerm
   extends Schema.CollectionType {
   collectionName: 'data_premium_payment_terms';
@@ -1455,6 +1520,8 @@ declare module '@strapi/types' {
       'api::data-country.data-country': ApiDataCountryDataCountry;
       'api::data-gender.data-gender': ApiDataGenderDataGender;
       'api::data-nationality.data-nationality': ApiDataNationalityDataNationality;
+      'api::data-payment-mode.data-payment-mode': ApiDataPaymentModeDataPaymentMode;
+      'api::data-policy-term.data-policy-term': ApiDataPolicyTermDataPolicyTerm;
       'api::data-premium-payment-term.data-premium-payment-term': ApiDataPremiumPaymentTermDataPremiumPaymentTerm;
       'api::data-premium-type.data-premium-type': ApiDataPremiumTypeDataPremiumType;
       'api::data-product-name.data-product-name': ApiDataProductNameDataProductName;
