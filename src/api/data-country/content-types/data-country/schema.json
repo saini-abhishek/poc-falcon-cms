@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "data_countries",
+  "info": {
+    "singularName": "data-country",
+    "pluralName": "data-countries",
+    "displayName": "DataCountry"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "shortName": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    }
+  }
+}

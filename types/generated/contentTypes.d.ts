@@ -823,44 +823,6 @@ export interface ApiAppConfigAppConfig extends Schema.SingleType {
   };
 }
 
-export interface ApiCountryCountry extends Schema.CollectionType {
-  collectionName: 'countries';
-  info: {
-    singularName: 'country';
-    pluralName: 'countries';
-    displayName: 'DataCountry';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    shortName: Attribute.String;
-    code: Attribute.String;
-    dataConfigs: Attribute.Relation<
-      'api::country.country',
-      'manyToMany',
-      'api::data-config.data-config'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::country.country',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::country.country',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiDataConfigDataConfig extends Schema.CollectionType {
   collectionName: 'data_configs';
   info: {
@@ -878,11 +840,6 @@ export interface ApiDataConfigDataConfig extends Schema.CollectionType {
       'api::data-config.data-config',
       'manyToMany',
       'api::data-nationality.data-nationality'
-    >;
-    dataCountries: Attribute.Relation<
-      'api::data-config.data-config',
-      'manyToMany',
-      'api::country.country'
     >;
     dataGenders: Attribute.Relation<
       'api::data-config.data-config',
@@ -904,6 +861,11 @@ export interface ApiDataConfigDataConfig extends Schema.CollectionType {
       'oneToMany',
       'api::data-premium-payment-term.data-premium-payment-term'
     >;
+    dataCountries: Attribute.Relation<
+      'api::data-config.data-config',
+      'oneToMany',
+      'api::data-country.data-country'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -915,6 +877,38 @@ export interface ApiDataConfigDataConfig extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::data-config.data-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataCountryDataCountry extends Schema.CollectionType {
+  collectionName: 'data_countries';
+  info: {
+    singularName: 'data-country';
+    pluralName: 'data-countries';
+    displayName: 'DataCountry';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    shortName: Attribute.String;
+    code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-country.data-country',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-country.data-country',
       'oneToOne',
       'admin::user'
     > &
@@ -1457,8 +1451,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::app-config.app-config': ApiAppConfigAppConfig;
-      'api::country.country': ApiCountryCountry;
       'api::data-config.data-config': ApiDataConfigDataConfig;
+      'api::data-country.data-country': ApiDataCountryDataCountry;
       'api::data-gender.data-gender': ApiDataGenderDataGender;
       'api::data-nationality.data-nationality': ApiDataNationalityDataNationality;
       'api::data-premium-payment-term.data-premium-payment-term': ApiDataPremiumPaymentTermDataPremiumPaymentTerm;
