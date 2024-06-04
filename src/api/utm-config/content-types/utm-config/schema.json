@@ -37,6 +37,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::form-field-config.form-field-config"
+    },
+    "productConfig": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::data-product-name.data-product-name"
     }
   }
 }
