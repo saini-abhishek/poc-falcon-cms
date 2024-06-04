@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_logical_key_values",
+  "info": {
+    "displayName": "keyValue",
+    "icon": "puzzle"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

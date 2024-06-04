@@ -7,12 +7,9 @@ export interface ContainerFormContainer extends Schema.Component {
     icon: 'information';
   };
   attributes: {
-    name: Attribute.String;
-    form: Attribute.Relation<
-      'container.form-container',
-      'oneToOne',
-      'api::form.form'
-    >;
+    layout: Attribute.Component<'layout.layout'>;
+    forms: Attribute.Component<'form.multi-form', true>;
+    button: Attribute.Component<'ui.button', true>;
   };
 }
 
@@ -75,6 +72,19 @@ export interface FormInput extends Schema.Component {
     style: Attribute.JSON;
     visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
     defaultValue: Attribute.String;
+  };
+}
+
+export interface FormMultiForm extends Schema.Component {
+  collectionName: 'components_form_multi_forms';
+  info: {
+    displayName: 'multiForm';
+    icon: 'layer';
+  };
+  attributes: {
+    name: Attribute.String;
+    form: Attribute.Relation<'form.multi-form', 'oneToOne', 'api::form.form'>;
+    rules: Attribute.Component<'logical.json-rule'>;
   };
 }
 
@@ -187,6 +197,77 @@ export interface LogicalDataFilter extends Schema.Component {
   };
 }
 
+export interface LogicalJsonRule extends Schema.Component {
+  collectionName: 'components_logical_json_rules';
+  info: {
+    displayName: 'jsonRule';
+    icon: 'connector';
+  };
+  attributes: {
+    any: Attribute.Component<'logical.rule', true>;
+    all: Attribute.Component<'logical.rule', true>;
+    roleOutput: Attribute.Component<'logical.key-value'>;
+    relationBetweenAnyAll: Attribute.Enumeration<['any', 'all']>;
+    relationWithNextRule: Attribute.Enumeration<['any', 'all']>;
+  };
+}
+
+export interface LogicalKeyValue extends Schema.Component {
+  collectionName: 'components_logical_key_values';
+  info: {
+    displayName: 'keyValue';
+    icon: 'puzzle';
+  };
+  attributes: {
+    key: Attribute.String;
+    value: Attribute.String;
+  };
+}
+
+export interface LogicalRuleValues extends Schema.Component {
+  collectionName: 'components_logical_rule_values';
+  info: {
+    displayName: 'ruleValues';
+    icon: 'hashtag';
+  };
+  attributes: {
+    value: Attribute.Enumeration<['all']>;
+    customValue: Attribute.String;
+  };
+}
+
+export interface LogicalRule extends Schema.Component {
+  collectionName: 'components_logical_rules';
+  info: {
+    displayName: 'rule';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    fact: Attribute.Relation<
+      'logical.rule',
+      'oneToOne',
+      'api::form-field-name.form-field-name'
+    >;
+    operator: Attribute.Enumeration<
+      [
+        'equal',
+        'greaterThan',
+        'greaterThanInclusive',
+        'lessThan',
+        'lessThanInclusive',
+        'notEqual',
+        'in',
+        'notIn',
+        'contains',
+        'doesNotContain'
+      ]
+    >;
+    customValue: Attribute.String;
+    value: Attribute.Enumeration<['M', 'F']>;
+    values: Attribute.Component<'logical.rule-values', true>;
+  };
+}
+
 export interface UiButton extends Schema.Component {
   collectionName: 'components_ui_buttons';
   info: {
@@ -283,11 +364,16 @@ declare module '@strapi/types' {
       'form.dob-single-input': FormDobSingleInput;
       'form.field-config': FormFieldConfig;
       'form.input': FormInput;
+      'form.multi-form': FormMultiForm;
       'form.phone-number': FormPhoneNumber;
       'layout.form-navigation': LayoutFormNavigation;
       'layout.layout-order': LayoutLayoutOrder;
       'layout.layout': LayoutLayout;
       'logical.data-filter': LogicalDataFilter;
+      'logical.json-rule': LogicalJsonRule;
+      'logical.key-value': LogicalKeyValue;
+      'logical.rule-values': LogicalRuleValues;
+      'logical.rule': LogicalRule;
       'ui.button': UiButton;
       'ui.checkbox': UiCheckbox;
       'ui.logo': UiLogo;

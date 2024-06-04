@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_logical_rules",
+  "info": {
+    "displayName": "rule",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "fact": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-field-name.form-field-name"
+    },
+    "operator": {
+      "type": "enumeration",
+      "enum": [
+        "equal",
+        "greaterThan",
+        "greaterThanInclusive",
+        "lessThan",
+        "lessThanInclusive",
+        "notEqual",
+        "in",
+        "notIn",
+        "contains",
+        "doesNotContain"
+      ]
+    },
+    "customValue": {
+      "type": "string"
+    },
+    "value": {
+      "type": "enumeration",
+      "enum": [
+        "M",
+        "F"
+      ]
+    },
+    "values": {
+      "type": "component",
+      "repeatable": true,
+      "component": "logical.rule-values"
+    }
+  }
+}

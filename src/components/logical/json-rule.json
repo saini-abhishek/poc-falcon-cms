@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_logical_json_rules",
+  "info": {
+    "displayName": "jsonRule",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "any": {
+      "type": "component",
+      "repeatable": true,
+      "component": "logical.rule"
+    },
+    "all": {
+      "type": "component",
+      "repeatable": true,
+      "component": "logical.rule"
+    },
+    "roleOutput": {
+      "type": "component",
+      "repeatable": false,
+      "component": "logical.key-value"
+    },
+    "relationBetweenAnyAll": {
+      "type": "enumeration",
+      "enum": [
+        "any",
+        "all"
+      ]
+    },
+    "relationWithNextRule": {
+      "type": "enumeration",
+      "enum": [
+        "any",
+        "all"
+      ]
+    }
+  }
+}

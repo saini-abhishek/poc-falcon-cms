@@ -6,13 +6,20 @@
   },
   "options": {},
   "attributes": {
-    "name": {
-      "type": "string"
+    "layout": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.layout"
     },
-    "form": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::form.form"
+    "forms": {
+      "type": "component",
+      "repeatable": true,
+      "component": "form.multi-form"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "ui.button"
     }
   }
 }

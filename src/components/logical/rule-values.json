@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_logical_rule_values",
+  "info": {
+    "displayName": "ruleValues",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "enumeration",
+      "enum": [
+        "all"
+      ]
+    },
+    "customValue": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_form_multi_forms",
+  "info": {
+    "displayName": "multiForm",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    },
+    "rules": {
+      "type": "component",
+      "repeatable": false,
+      "component": "logical.json-rule"
+    }
+  }
+}
