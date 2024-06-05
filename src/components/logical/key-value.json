@@ -2,14 +2,23 @@
   "collectionName": "components_logical_key_values",
   "info": {
     "displayName": "keyValue",
-    "icon": "puzzle"
+    "icon": "puzzle",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "key": {
+    "value": {
       "type": "string"
     },
-    "value": {
+    "isVisible": {
+      "type": "boolean",
+      "default": true
+    },
+    "isDisable": {
+      "type": "boolean",
+      "default": false
+    },
+    "key": {
       "type": "string"
     }
   }

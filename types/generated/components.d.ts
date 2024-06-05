@@ -217,10 +217,13 @@ export interface LogicalKeyValue extends Schema.Component {
   info: {
     displayName: 'keyValue';
     icon: 'puzzle';
+    description: '';
   };
   attributes: {
-    key: Attribute.String;
     value: Attribute.String;
+    isVisible: Attribute.Boolean & Attribute.DefaultTo<true>;
+    isDisable: Attribute.Boolean & Attribute.DefaultTo<false>;
+    key: Attribute.String;
   };
 }
 
