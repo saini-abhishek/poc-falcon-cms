@@ -84,7 +84,7 @@ export interface FormMultiForm extends Schema.Component {
   attributes: {
     name: Attribute.String;
     form: Attribute.Relation<'form.multi-form', 'oneToOne', 'api::form.form'>;
-    rules: Attribute.Component<'logical.json-rule'>;
+    rules: Attribute.Component<'logical.json-rule', true>;
   };
 }
 
@@ -207,8 +207,10 @@ export interface LogicalJsonRule extends Schema.Component {
     any: Attribute.Component<'logical.rule', true>;
     all: Attribute.Component<'logical.rule', true>;
     roleOutput: Attribute.Component<'logical.key-value'>;
-    relationBetweenAnyAll: Attribute.Enumeration<['any', 'all']>;
-    relationWithNextRule: Attribute.Enumeration<['any', 'all']>;
+    relationBetweenAnyAll: Attribute.Enumeration<['any', 'all']> &
+      Attribute.DefaultTo<'any'>;
+    relationWithNextRule: Attribute.Enumeration<['any', 'all']> &
+      Attribute.DefaultTo<'all'>;
   };
 }
 

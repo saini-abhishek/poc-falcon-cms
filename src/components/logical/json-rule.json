@@ -23,6 +23,7 @@
     },
     "relationBetweenAnyAll": {
       "type": "enumeration",
+      "default": "any",
       "enum": [
         "any",
         "all"
@@ -30,6 +31,7 @@
     },
     "relationWithNextRule": {
       "type": "enumeration",
+      "default": "all",
       "enum": [
         "any",
         "all"

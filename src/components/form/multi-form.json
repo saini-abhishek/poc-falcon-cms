@@ -16,7 +16,7 @@
     },
     "rules": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "logical.json-rule"
     }
   }
