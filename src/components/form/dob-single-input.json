@@ -27,6 +27,11 @@
     },
     "defaultValue": {
       "type": "string"
+    },
+    "rules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "logical.json-rule"
     }
   }
 }

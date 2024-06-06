@@ -31,6 +31,7 @@ export interface FormDobSingleInput extends Schema.Component {
     >;
     visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
     defaultValue: Attribute.String;
+    rules: Attribute.Component<'logical.json-rule', true>;
   };
 }
 
@@ -72,6 +73,7 @@ export interface FormInput extends Schema.Component {
     style: Attribute.JSON;
     visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
     defaultValue: Attribute.String;
+    rules: Attribute.Component<'logical.json-rule', true>;
   };
 }
 
@@ -117,6 +119,7 @@ export interface FormPhoneNumber extends Schema.Component {
       'api::pop-up.pop-up'
     >;
     defaultValue: Attribute.String;
+    rules: Attribute.Component<'logical.json-rule', true>;
   };
 }
 
@@ -298,6 +301,7 @@ export interface UiCheckbox extends Schema.Component {
     name: Attribute.String;
     label: Attribute.String;
     defaultValue: Attribute.String;
+    rules: Attribute.Component<'logical.json-rule', true>;
   };
 }
 
@@ -345,6 +349,7 @@ export interface UiOption extends Schema.Component {
     dataFilter: Attribute.Component<'logical.data-filter', true>;
     variant: Attribute.Enumeration<['checkbox']>;
     defaultValue: Attribute.String;
+    rules: Attribute.Component<'logical.json-rule', true>;
   };
 }
 
@@ -359,6 +364,7 @@ export interface UiToggleSwitch extends Schema.Component {
     name: Attribute.String;
     label: Attribute.String;
     defaultValue: Attribute.String;
+    rules: Attribute.Component<'logical.json-rule', true>;
   };
 }
 
