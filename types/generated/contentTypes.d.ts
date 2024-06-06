@@ -1127,7 +1127,7 @@ export interface ApiDataProductNameDataProductName
   };
   attributes: {
     name: Attribute.String;
-    marketingName: Attribute.String;
+    label: Attribute.String;
     code: Attribute.String;
     productId: Attribute.String;
     createdAt: Attribute.DateTime;
@@ -1473,11 +1473,6 @@ export interface ApiUtmConfigUtmConfig extends Schema.CollectionType {
       'api::utm-config.utm-config',
       'oneToOne',
       'api::form-field-config.form-field-config'
-    >;
-    productConfig: Attribute.Relation<
-      'api::utm-config.utm-config',
-      'oneToMany',
-      'api::data-product-name.data-product-name'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
