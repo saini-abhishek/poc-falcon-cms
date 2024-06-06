@@ -17,9 +17,8 @@
     },
     "dataNationalities": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::data-nationality.data-nationality",
-      "inversedBy": "dataConfigs"
+      "relation": "oneToMany",
+      "target": "api::data-nationality.data-nationality"
     },
     "dataGenders": {
       "type": "relation",

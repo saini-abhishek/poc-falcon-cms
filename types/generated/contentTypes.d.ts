@@ -838,7 +838,7 @@ export interface ApiDataConfigDataConfig extends Schema.CollectionType {
     name: Attribute.String;
     dataNationalities: Attribute.Relation<
       'api::data-config.data-config',
-      'manyToMany',
+      'oneToMany',
       'api::data-nationality.data-nationality'
     >;
     dataGenders: Attribute.Relation<
@@ -964,11 +964,6 @@ export interface ApiDataNationalityDataNationality
     name: Attribute.String;
     term: Attribute.String;
     value: Attribute.String;
-    dataConfigs: Attribute.Relation<
-      'api::data-nationality.data-nationality',
-      'manyToMany',
-      'api::data-config.data-config'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
