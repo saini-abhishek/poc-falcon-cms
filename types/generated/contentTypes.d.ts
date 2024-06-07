@@ -1278,6 +1278,36 @@ export interface ApiFormFieldNameFormFieldName extends Schema.CollectionType {
   };
 }
 
+export interface ApiJourneyTypeJourneyType extends Schema.CollectionType {
+  collectionName: 'journey_types';
+  info: {
+    singularName: 'journey-type';
+    pluralName: 'journey-types';
+    displayName: 'journeyType';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::journey-type.journey-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::journey-type.journey-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLayoutLayout extends Schema.CollectionType {
   collectionName: 'layouts';
   info: {
@@ -1474,6 +1504,11 @@ export interface ApiUtmConfigUtmConfig extends Schema.CollectionType {
       'oneToOne',
       'api::form-field-config.form-field-config'
     >;
+    journeyType: Attribute.Relation<
+      'api::utm-config.utm-config',
+      'oneToOne',
+      'api::journey-type.journey-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1524,6 +1559,7 @@ declare module '@strapi/types' {
       'api::form.form': ApiFormForm;
       'api::form-field-config.form-field-config': ApiFormFieldConfigFormFieldConfig;
       'api::form-field-name.form-field-name': ApiFormFieldNameFormFieldName;
+      'api::journey-type.journey-type': ApiJourneyTypeJourneyType;
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;
       'api::pop-up.pop-up': ApiPopUpPopUp;

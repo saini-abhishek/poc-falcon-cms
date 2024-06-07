@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "journey_types",
+  "info": {
+    "singularName": "journey-type",
+    "pluralName": "journey-types",
+    "displayName": "journeyType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

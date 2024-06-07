@@ -37,6 +37,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::form-field-config.form-field-config"
+    },
+    "journeyType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::journey-type.journey-type"
     }
   }
 }
