@@ -866,7 +866,7 @@ export interface ApiDataConfigDataConfig extends Schema.CollectionType {
       'oneToMany',
       'api::data-country.data-country'
     >;
-    data_residentials: Attribute.Relation<
+    dataResidentials: Attribute.Relation<
       'api::data-config.data-config',
       'oneToMany',
       'api::data-residential.data-residential'

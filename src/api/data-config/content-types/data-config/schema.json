@@ -45,7 +45,7 @@
       "relation": "oneToMany",
       "target": "api::data-country.data-country"
     },
-    "data_residentials": {
+    "dataResidentials": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::data-residential.data-residential"
