@@ -866,6 +866,11 @@ export interface ApiDataConfigDataConfig extends Schema.CollectionType {
       'oneToMany',
       'api::data-country.data-country'
     >;
+    data_residentials: Attribute.Relation<
+      'api::data-config.data-config',
+      'oneToMany',
+      'api::data-residential.data-residential'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1141,6 +1146,40 @@ export interface ApiDataProductNameDataProductName
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::data-product-name.data-product-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDataResidentialDataResidential
+  extends Schema.CollectionType {
+  collectionName: 'data_residentials';
+  info: {
+    singularName: 'data-residential';
+    pluralName: 'data-residentials';
+    displayName: 'DataResidential';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    term: Attribute.String;
+    value: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::data-residential.data-residential',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::data-residential.data-residential',
       'oneToOne',
       'admin::user'
     > &
@@ -1555,6 +1594,7 @@ declare module '@strapi/types' {
       'api::data-premium-payment-term.data-premium-payment-term': ApiDataPremiumPaymentTermDataPremiumPaymentTerm;
       'api::data-premium-type.data-premium-type': ApiDataPremiumTypeDataPremiumType;
       'api::data-product-name.data-product-name': ApiDataProductNameDataProductName;
+      'api::data-residential.data-residential': ApiDataResidentialDataResidential;
       'api::data-source-name.data-source-name': ApiDataSourceNameDataSourceName;
       'api::form.form': ApiFormForm;
       'api::form-field-config.form-field-config': ApiFormFieldConfigFormFieldConfig;
