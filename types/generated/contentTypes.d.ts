@@ -851,7 +851,7 @@ export interface ApiDataConfigDataConfig extends Schema.CollectionType {
       'oneToMany',
       'api::data-product-name.data-product-name'
     >;
-    dataPremiumType: Attribute.Relation<
+    dataPremiumTypes: Attribute.Relation<
       'api::data-config.data-config',
       'oneToMany',
       'api::data-premium-type.data-premium-type'

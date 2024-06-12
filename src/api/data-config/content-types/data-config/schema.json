@@ -30,7 +30,7 @@
       "relation": "oneToMany",
       "target": "api::data-product-name.data-product-name"
     },
-    "dataPremiumType": {
+    "dataPremiumTypes": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::data-premium-type.data-premium-type"
