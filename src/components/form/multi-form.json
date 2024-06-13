@@ -6,6 +6,14 @@
   },
   "options": {},
   "attributes": {
+    "visibility": {
+      "type": "boolean",
+      "default": true
+    },
+    "disable": {
+      "type": "boolean",
+      "default": false
+    },
     "name": {
       "type": "string"
     },

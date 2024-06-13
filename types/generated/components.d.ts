@@ -84,6 +84,8 @@ export interface FormMultiForm extends Schema.Component {
     icon: 'layer';
   };
   attributes: {
+    visibility: Attribute.Boolean & Attribute.DefaultTo<true>;
+    disable: Attribute.Boolean & Attribute.DefaultTo<false>;
     name: Attribute.String;
     form: Attribute.Relation<'form.multi-form', 'oneToOne', 'api::form.form'>;
     rules: Attribute.Component<'logical.json-rule', true>;
