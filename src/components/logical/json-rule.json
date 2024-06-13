@@ -18,7 +18,7 @@
     },
     "ruleOutput": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "logical.key-value"
     },
     "relationBetweenAnyAll": {
