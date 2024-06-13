@@ -211,11 +211,11 @@ export interface LogicalJsonRule extends Schema.Component {
   attributes: {
     any: Attribute.Component<'logical.rule', true>;
     all: Attribute.Component<'logical.rule', true>;
-    roleOutput: Attribute.Component<'logical.key-value'>;
+    ruleOutput: Attribute.Component<'logical.key-value', true>;
     relationBetweenAnyAll: Attribute.Enumeration<['any', 'all']> &
-      Attribute.DefaultTo<'any'>;
+    Attribute.DefaultTo<'any'>;
     relationWithNextRule: Attribute.Enumeration<['any', 'all']> &
-      Attribute.DefaultTo<'all'>;
+    Attribute.DefaultTo<'all'>;
   };
 }
 

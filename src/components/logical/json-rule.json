@@ -16,9 +16,9 @@
       "repeatable": true,
       "component": "logical.rule"
     },
-    "roleOutput": {
+    "ruleOutput": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "logical.key-value"
     },
     "relationBetweenAnyAll": {
